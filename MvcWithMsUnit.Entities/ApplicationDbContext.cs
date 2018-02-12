@@ -20,6 +20,7 @@ namespace MvcWithMsUnit.Entities
 
         public DbSet<Person> Persons { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<AccountType> AccountTypes { get; set; }
 
 
 

@@ -54,7 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountTypeRepository.cs" />
     <Compile Include="CountryRepository.cs" />
+    <Compile Include="IAccountTypeRepository.cs" />
     <Compile Include="ICountryRepository.cs" />
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="IRepository.cs" />

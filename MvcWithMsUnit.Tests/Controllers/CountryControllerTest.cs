@@ -67,7 +67,7 @@ namespace MvcWithMsUnit.Tests.Controllers
         {
             // Arrange
             Country c = new Country() { Name = "" };
-            objController.ModelState.AddModelError("Error", "Something went wrong");
+            objController.ModelState.AddModelError("Name", "Something went wrong");
 
             //Act
             var result = (ViewResult)objController.Create(c);
@@ -81,7 +81,7 @@ namespace MvcWithMsUnit.Tests.Controllers
         public void Country_Regx_Validation_Create()
         {
             // Arrange
-            Country c = new Country() { Name = "As@DS!" };
+            Country c = new Country { Name = "As@DS!" };
             objController.ModelState.AddModelError("Error", "Something went wrong");
 
             //Act

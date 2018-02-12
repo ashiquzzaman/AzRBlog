@@ -107,6 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountTypeControllerTest.cs" />
     <Compile Include="Controllers\CountryControllerTest.cs" />
     <Compile Include="Controllers\PersonControllerTest.cs" />
     <Compile Include="Managers\CountryManagerTest.cs" />

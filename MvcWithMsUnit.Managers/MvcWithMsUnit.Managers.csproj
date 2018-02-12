@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountTypeManager.cs" />
     <Compile Include="CountryManager.cs" />
     <Compile Include="EntityManager.cs" />
+    <Compile Include="IAccountTypeManager.cs" />
     <Compile Include="ICountryManager.cs" />
     <Compile Include="IEntityManager.cs" />
     <Compile Include="IManager.cs" />
