@@ -48,7 +48,7 @@ namespace MvcWithMsUnit.Tests.Controllers
         }
 
         [TestMethod]
-        public void Valid_Country_Create()
+        public void Country_Valid_Create()
         {
             //Arrange
             Country c = new Country() { Name = "test1" };
@@ -63,7 +63,7 @@ namespace MvcWithMsUnit.Tests.Controllers
         }
 
         [TestMethod]
-        public void Invalid_Country_Create()
+        public void Country_Invalid_Create()
         {
             // Arrange
             Country c = new Country() { Name = "" };
@@ -78,7 +78,7 @@ namespace MvcWithMsUnit.Tests.Controllers
         }
 
         [TestMethod]
-        public void Regx_Validation_Country_Create()
+        public void Country_Regx_Validation_Create()
         {
             // Arrange
             Country c = new Country() { Name = "As@DS!" };
