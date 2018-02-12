@@ -13,7 +13,7 @@ namespace MvcWithMsUnit.Tests.Controllers
     {
         private Mock<ICountryManager> _countryManagerMock;
         CountryController objController;
-        List<Country> listCountry;
+        List<Country> list;
 
         [TestInitialize]
         public void Initialize()
@@ -21,7 +21,7 @@ namespace MvcWithMsUnit.Tests.Controllers
 
             _countryManagerMock = new Mock<ICountryManager>();
             objController = new CountryController(_countryManagerMock.Object);
-            listCountry = new List<Country>() {
+            list = new List<Country>() {
            new Country() { Id = 1, Name = "US" },
            new Country() { Id = 2, Name = "India" },
            new Country() { Id = 3, Name = "Russia" }
@@ -34,7 +34,7 @@ namespace MvcWithMsUnit.Tests.Controllers
         public void Country_Get_All()
         {
             //Arrange
-            _countryManagerMock.Setup(x => x.GetAll()).Returns(listCountry);
+            _countryManagerMock.Setup(x => x.GetAll()).Returns(list);
 
             //Act
             var result = ((objController.Index() as ViewResult).Model) as List<Country>;
@@ -67,6 +67,21 @@ namespace MvcWithMsUnit.Tests.Controllers
         {
             // Arrange
             Country c = new Country() { Name = "" };
+            objController.ModelState.AddModelError("Error", "Something went wrong");
+
+            //Act
+            var result = (ViewResult)objController.Create(c);
+
+            //Assert
+            _countryManagerMock.Verify(m => m.Create(c), Times.Never);
+            Assert.AreEqual("", result.ViewName);
+        }
+
+        [TestMethod]
+        public void Regx_Validation_Country_Create()
+        {
+            // Arrange
+            Country c = new Country() { Name = "As@DS!" };
             objController.ModelState.AddModelError("Error", "Something went wrong");
 
             //Act
