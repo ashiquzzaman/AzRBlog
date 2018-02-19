@@ -7,7 +7,7 @@ namespace MvcWithMsUnit.Managers
 {
     public abstract class EntityManager<T> : IEntityManager<T> where T : BaseEntity
     {
-        IRepository<T> _repository;
+        private readonly IRepository<T> _repository;
 
         public EntityManager(IRepository<T> repository)
         {

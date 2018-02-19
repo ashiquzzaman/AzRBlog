@@ -12,32 +12,31 @@ namespace MvcWithMsUnit.Tests.Controllers
     public class CountryControllerTest
     {
         private Mock<ICountryManager> _countryManagerMock;
-        CountryController objController;
-        List<Country> list;
+        private CountryController _countryController;
+        private List<Country> _list;
 
         [TestInitialize]
         public void Initialize()
         {
-
             _countryManagerMock = new Mock<ICountryManager>();
-            objController = new CountryController(_countryManagerMock.Object);
-            list = new List<Country>() {
-           new Country() { Id = 1, Name = "US" },
-           new Country() { Id = 2, Name = "India" },
-           new Country() { Id = 3, Name = "Russia" }
+            _countryController = new CountryController(_countryManagerMock.Object);
+            _list = new List<Country>
+            {
+                new Country { Id = 1, Name = "US" },
+                new Country { Id = 2, Name = "India" },
+                new Country { Id = 3, Name = "Russia" }
           };
         }
 
 
-
         [TestMethod]
-        public void Country_Get_All()
+        public void Index_WhenCalled_ReturnsListOfCountries()
         {
             //Arrange
-            _countryManagerMock.Setup(x => x.GetAll()).Returns(list);
+            _countryManagerMock.Setup(x => x.GetAll()).Returns(_list);
 
             //Act
-            var result = ((objController.Index() as ViewResult).Model) as List<Country>;
+            var result = ((ViewResult)_countryController.Index()).Model as List<Country>;
 
             //Assert
             Assert.AreEqual(result.Count, 3);
@@ -47,49 +46,39 @@ namespace MvcWithMsUnit.Tests.Controllers
 
         }
 
+        [DataTestMethod]
+        [DataRow("")]
+        [DataRow("@!&*")]
+        public void Create_SaveWithEmptyOrInvalidCountryName_ReturnsValidationMessage(string countryName)
+        {
+            var country = new Country
+            {
+                Name = countryName
+            };
+
+            _countryController.ModelState.AddModelError("Error", @"Something went wrong");
+
+            var result = (ViewResult)_countryController.Create(country);
+
+            _countryManagerMock.Verify(m => m.Create(country), Times.Never);
+            Assert.AreEqual("", result.ViewName);
+
+        }
+
+
         [TestMethod]
-        public void Country_Valid_Create()
+        public void Create_SaveWithValidInput_ReturnsToIndexAction()
         {
             //Arrange
-            Country c = new Country() { Name = "test1" };
+            var country = new Country { Name = "test1" };
 
             //Act
-            var result = (RedirectToRouteResult)objController.Create(c);
+            var result = (RedirectToRouteResult)_countryController.Create(country);
 
             //Assert 
-            _countryManagerMock.Verify(m => m.Create(c), Times.Once);
+            _countryManagerMock.Verify(m => m.Create(country), Times.Once);
             Assert.AreEqual("Index", result.RouteValues["action"]);
 
-        }
-
-        [TestMethod]
-        public void Country_Invalid_Create()
-        {
-            // Arrange
-            Country c = new Country() { Name = "" };
-            objController.ModelState.AddModelError("Name", "Something went wrong");
-
-            //Act
-            var result = (ViewResult)objController.Create(c);
-
-            //Assert
-            _countryManagerMock.Verify(m => m.Create(c), Times.Never);
-            Assert.AreEqual("", result.ViewName);
-        }
-
-        [TestMethod]
-        public void Country_Regx_Validation_Create()
-        {
-            // Arrange
-            Country c = new Country { Name = "As@DS!" };
-            objController.ModelState.AddModelError("Error", "Something went wrong");
-
-            //Act
-            var result = (ViewResult)objController.Create(c);
-
-            //Assert
-            _countryManagerMock.Verify(m => m.Create(c), Times.Never);
-            Assert.AreEqual("", result.ViewName);
         }
 
     }

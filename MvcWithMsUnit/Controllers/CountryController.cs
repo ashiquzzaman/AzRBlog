@@ -8,18 +8,18 @@ namespace MvcWithMsUnit.Controllers
     {
 
         //initialize service object
-        ICountryManager _Country;
+        private readonly ICountryManager _country;
 
         public CountryController(ICountryManager country)
         {
-            _Country = country;
+            _country = country;
         }
 
         //
         // GET: /Country/
         public ActionResult Index()
         {
-            return View(_Country.GetAll());
+            return View(_country.GetAll());
         }
 
         //
@@ -35,22 +35,22 @@ namespace MvcWithMsUnit.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Country country)
         {
-
             // TODO: Add insert logic here
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _Country.Create(country);
-                return RedirectToAction("Index");
+                //ModelState.AddModelError("Name", @"Please Insert Valid Country Name");
+                return View(country);
             }
-            return View(country);
 
+            _country.Create(country);
+            return RedirectToAction("Index");
         }
 
         //
         // GET: /Country/Edit/5
         public ActionResult Edit(int id)
         {
-            Country country = _Country.GetById(id);
+            var country = _country.GetById(id);
             if (country == null)
             {
                 return HttpNotFound();
@@ -66,7 +66,7 @@ namespace MvcWithMsUnit.Controllers
 
             if (ModelState.IsValid)
             {
-                _Country.Update(country);
+                _country.Update(country);
                 return RedirectToAction("Index");
             }
             return View(country);
@@ -77,7 +77,7 @@ namespace MvcWithMsUnit.Controllers
         // GET: /Country/Delete/5
         public ActionResult Delete(int id)
         {
-            Country country = _Country.GetById(id);
+            var country = _country.GetById(id);
             if (country == null)
             {
                 return HttpNotFound();
@@ -91,8 +91,8 @@ namespace MvcWithMsUnit.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, FormCollection data)
         {
-            Country country = _Country.GetById(id);
-            _Country.Delete(country);
+            var country = _country.GetById(id);
+            _country.Delete(country);
             return RedirectToAction("Index");
         }
     }
