@@ -13,14 +13,14 @@ namespace MvcWithMsUnit.Tests.Controllers
     {
         private Mock<ICountryManager> _countryManagerMock;
         private CountryController _countryController;
-        private List<Country> _list;
+        private List<Country> _countryList;
 
         [TestInitialize]
         public void Initialize()
         {
             _countryManagerMock = new Mock<ICountryManager>();
             _countryController = new CountryController(_countryManagerMock.Object);
-            _list = new List<Country>
+            _countryList = new List<Country>
             {
                 new Country { Id = 1, Name = "US" },
                 new Country { Id = 2, Name = "India" },
@@ -33,7 +33,7 @@ namespace MvcWithMsUnit.Tests.Controllers
         public void Index_WhenCalled_ReturnsListOfCountries()
         {
             //Arrange
-            _countryManagerMock.Setup(x => x.GetAll()).Returns(_list);
+            _countryManagerMock.Setup(x => x.GetAll()).Returns(_countryList);
 
             //Act
             var result = ((ViewResult)_countryController.Index()).Model as List<Country>;
@@ -80,6 +80,32 @@ namespace MvcWithMsUnit.Tests.Controllers
             Assert.AreEqual("Index", result.RouteValues["action"]);
 
         }
+
+        [DataTestMethod]
+        [DataRow(0)]
+        [DataRow(-1)]
+        [DataRow(4)]
+        public void Edit_IdIsInvalid_ReturnsHttpNotFound(int id)
+        {
+            _countryManagerMock.Setup(c => c.GetById(id)).Returns(_countryList.Find(c => c.Id == id));
+
+            var result = _countryController.Edit(id);
+
+            Assert.IsInstanceOfType(result, typeof(HttpNotFoundResult));
+        }
+
+        [TestMethod]
+        public void Edit_IdIsValid_ReturnsCountryWithProvidedId()
+        {
+            const int id = 1;
+
+            _countryManagerMock.Setup(c => c.GetById(id)).Returns(_countryList[0]);
+
+            var result = ((ViewResult)_countryController.Edit(id)).Model as Country;
+
+            Assert.AreEqual(result, _countryList[0]);
+        }
+
 
     }
 }
