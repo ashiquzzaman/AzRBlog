@@ -49,6 +49,7 @@ namespace MvcWithMsUnit.Tests.Controllers
         [DataTestMethod]
         [DataRow("")]
         [DataRow("@!&*")]
+        [DataRow("ruxK8fqbr3bHGBmnbPzLdns2EDKRRRxAp0B7go6uIeWY8SD5cIKppgVIuOpSe1SpwYOH3d41vJ8GGb8XTqPCNjkuSXAgaKyobQmwl")]
         public void Create_SaveWithEmptyOrInvalidCountryName_ReturnsValidationMessage(string countryName)
         {
             var country = new Country
@@ -106,6 +107,59 @@ namespace MvcWithMsUnit.Tests.Controllers
             Assert.AreEqual(result, _countryList[0]);
         }
 
+        [DataTestMethod]
+        [DataRow("")]
+        [DataRow("@!&*")]
+        [DataRow("ruxK8fqbr3bHGBmnbPzLdns2EDKRRRxAp0B7go6uIeWY8SD5cIKppgVIuOpSe1SpwYOH3d41vJ8GGb8XTqPCNjkuSXAgaKyobQmwl")]
+        public void Edit_SaveWithInvalidInput_ReturnsValidationMessage(string countryName)
+        {
+            var country = new Country
+            {
+                Name = countryName
+            };
 
+            _countryController.ModelState.AddModelError("Error", @"Something went wrong");
+
+            var result = (ViewResult)_countryController.Edit(country);
+
+            _countryManagerMock.Verify(m => m.Update(country), Times.Never);
+            Assert.AreEqual("", result.ViewName);
+        }
+
+        [TestMethod]
+        public void Edit_SaveWithValidInput_ReturnsToIndexAction()
+        {
+            var country = new Country { Name = "test1" };
+
+            var result = (RedirectToRouteResult)_countryController.Edit(country);
+
+            _countryManagerMock.Verify(m => m.Update(country), Times.Once);
+            Assert.AreEqual("Index", result.RouteValues["action"]);
+        }
+
+        [DataTestMethod]
+        [DataRow(0)]
+        [DataRow(-1)]
+        [DataRow(4)]
+        public void Delete_IdIsInvalid_ReturnsHttpNotFound(int id)
+        {
+            _countryManagerMock.Setup(c => c.GetById(id)).Returns(_countryList.Find(c => c.Id == id));
+
+            var result = _countryController.Delete(id);
+
+            Assert.IsInstanceOfType(result, typeof(HttpNotFoundResult));
+        }
+
+        [TestMethod]
+        public void Delete_IdIsValid_ReturnsCountryWithProvidedId()
+        {
+            const int id = 1;
+
+            _countryManagerMock.Setup(c => c.GetById(id)).Returns(_countryList[0]);
+
+            var result = ((ViewResult)_countryController.Delete(id)).Model as Country;
+
+            Assert.AreEqual(result, _countryList[0]);
+        }
     }
 }
