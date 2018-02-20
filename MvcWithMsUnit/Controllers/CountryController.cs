@@ -51,9 +51,11 @@ namespace MvcWithMsUnit.Controllers
         public ActionResult Edit(int id)
         {
             var country = _country.GetById(id);
+
             if (country == null)
             {
                 return HttpNotFound();
+
             }
             return View(country);
         }
@@ -63,12 +65,12 @@ namespace MvcWithMsUnit.Controllers
         [HttpPost]
         public ActionResult Edit(Country country)
         {
-
             if (ModelState.IsValid)
             {
                 _country.Update(country);
                 return RedirectToAction("Index");
             }
+
             return View(country);
 
         }
@@ -78,10 +80,12 @@ namespace MvcWithMsUnit.Controllers
         public ActionResult Delete(int id)
         {
             var country = _country.GetById(id);
+
             if (country == null)
             {
                 return HttpNotFound();
             }
+
             return View(country);
         }
 
