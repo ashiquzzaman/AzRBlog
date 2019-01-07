@@ -1,0 +1,651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D967E485-8148-49BF-86D4-FB409F9939D7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AzRBlog.Web</RootNamespace>
+    <AssemblyName>AzRBlog.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.8.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.8.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.8.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.8.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.8.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.8.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.8.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.5\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Themes\Blog\css\animate.min.css" />
+    <Content Include="Themes\Blog\css\bootstrap.css" />
+    <Content Include="Themes\Blog\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Themes\Blog\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Themes\Blog\css\bootstrap\bootstrap.css" />
+    <Content Include="Themes\Blog\css\font-awesome.min.css" />
+    <Content Include="Themes\Blog\css\hexagons.min.css" />
+    <Content Include="Themes\Blog\css\jquery.DonutWidget.min.css" />
+    <Content Include="Themes\Blog\css\jquerysctipttop.css" />
+    <Content Include="Themes\Blog\css\linearicons.css" />
+    <Content Include="Themes\Blog\css\magnific-popup.css" />
+    <Content Include="Themes\Blog\css\main.css" />
+    <Content Include="Themes\Blog\css\nice-select.css" />
+    <Content Include="Themes\Blog\css\owl.carousel.css" />
+    <Content Include="Themes\Blog\fonts\fontawesome-webfont.svg" />
+    <Content Include="Themes\Blog\fonts\Linearicons-Free.svg" />
+    <Content Include="Themes\Blog\img\archive\c1.jpg" />
+    <Content Include="Themes\Blog\img\archive\c2.jpg" />
+    <Content Include="Themes\Blog\img\archive\c3.jpg" />
+    <Content Include="Themes\Blog\img\archive\c4.jpg" />
+    <Content Include="Themes\Blog\img\archive\c5.jpg" />
+    <Content Include="Themes\Blog\img\archive\c6.jpg" />
+    <Content Include="Themes\Blog\img\archive\c7.jpg" />
+    <Content Include="Themes\Blog\img\archive\c8.jpg" />
+    <Content Include="Themes\Blog\img\author\a1.png" />
+    <Content Include="Themes\Blog\img\banner-bg.jpg" />
+    <Content Include="Themes\Blog\img\blog\c1.jpg" />
+    <Content Include="Themes\Blog\img\blog\c2.jpg" />
+    <Content Include="Themes\Blog\img\blog\c3.jpg" />
+    <Content Include="Themes\Blog\img\blog\c4.jpg" />
+    <Content Include="Themes\Blog\img\blog\c5.jpg" />
+    <Content Include="Themes\Blog\img\blog\news-blog.jpg" />
+    <Content Include="Themes\Blog\img\blog\next.jpg" />
+    <Content Include="Themes\Blog\img\blog\p1.jpg" />
+    <Content Include="Themes\Blog\img\blog\p2.jpg" />
+    <Content Include="Themes\Blog\img\blog\p3.jpg" />
+    <Content Include="Themes\Blog\img\blog\p4.jpg" />
+    <Content Include="Themes\Blog\img\blog\prev.jpg" />
+    <Content Include="Themes\Blog\img\blog\r1.jpg" />
+    <Content Include="Themes\Blog\img\blog\r2.jpg" />
+    <Content Include="Themes\Blog\img\blog\r3.jpg" />
+    <Content Include="Themes\Blog\img\blog\r4.jpg" />
+    <Content Include="Themes\Blog\img\blog\user-img.jpg" />
+    <Content Include="Themes\Blog\img\blog\user2.png" />
+    <Content Include="Themes\Blog\img\bullet.png" />
+    <Content Include="Themes\Blog\img\category\c1.jpg" />
+    <Content Include="Themes\Blog\img\category\c2.jpg" />
+    <Content Include="Themes\Blog\img\category\c3.jpg" />
+    <Content Include="Themes\Blog\img\category\c4.jpg" />
+    <Content Include="Themes\Blog\img\category\c5.jpg" />
+    <Content Include="Themes\Blog\img\category\c6.jpg" />
+    <Content Include="Themes\Blog\img\category\c7.jpg" />
+    <Content Include="Themes\Blog\img\category\c8.jpg" />
+    <Content Include="Themes\Blog\img\elements\a.jpg" />
+    <Content Include="Themes\Blog\img\elements\a2.jpg" />
+    <Content Include="Themes\Blog\img\elements\d.jpg" />
+    <Content Include="Themes\Blog\img\elements\disabled-check.png" />
+    <Content Include="Themes\Blog\img\elements\disabled-radio.png" />
+    <Content Include="Themes\Blog\img\elements\f1.jpg" />
+    <Content Include="Themes\Blog\img\elements\f2.jpg" />
+    <Content Include="Themes\Blog\img\elements\f3.jpg" />
+    <Content Include="Themes\Blog\img\elements\f4.jpg" />
+    <Content Include="Themes\Blog\img\elements\f5.jpg" />
+    <Content Include="Themes\Blog\img\elements\f6.jpg" />
+    <Content Include="Themes\Blog\img\elements\f7.jpg" />
+    <Content Include="Themes\Blog\img\elements\f8.jpg" />
+    <Content Include="Themes\Blog\img\elements\g1.jpg" />
+    <Content Include="Themes\Blog\img\elements\g2.jpg" />
+    <Content Include="Themes\Blog\img\elements\g3.jpg" />
+    <Content Include="Themes\Blog\img\elements\g4.jpg" />
+    <Content Include="Themes\Blog\img\elements\g5.jpg" />
+    <Content Include="Themes\Blog\img\elements\g6.jpg" />
+    <Content Include="Themes\Blog\img\elements\g7.jpg" />
+    <Content Include="Themes\Blog\img\elements\g8.jpg" />
+    <Content Include="Themes\Blog\img\elements\primary-check.png" />
+    <Content Include="Themes\Blog\img\elements\primary-radio.png" />
+    <Content Include="Themes\Blog\img\elements\success-check.png" />
+    <Content Include="Themes\Blog\img\elements\success-radio.png" />
+    <Content Include="Themes\Blog\img\fav.png" />
+    <Content Include="Themes\Blog\img\i1.jpg" />
+    <Content Include="Themes\Blog\img\i2.jpg" />
+    <Content Include="Themes\Blog\img\i3.jpg" />
+    <Content Include="Themes\Blog\img\i4.jpg" />
+    <Content Include="Themes\Blog\img\i5.jpg" />
+    <Content Include="Themes\Blog\img\i6.jpg" />
+    <Content Include="Themes\Blog\img\i7.jpg" />
+    <Content Include="Themes\Blog\img\i8.jpg" />
+    <Content Include="Themes\Blog\img\logo.png" />
+    <Content Include="Themes\Blog\img\posts\carousel\post1.jpg" />
+    <Content Include="Themes\Blog\img\posts\carousel\post2.jpg" />
+    <Content Include="Themes\Blog\img\posts\carousel\post3.jpg" />
+    <Content Include="Themes\Blog\img\posts\carousel\stories1.jpg" />
+    <Content Include="Themes\Blog\img\posts\carousel\stories2.jpg" />
+    <Content Include="Themes\Blog\img\posts\carousel\stories3.jpg" />
+    <Content Include="Themes\Blog\img\posts\carousel\stories4.jpg" />
+    <Content Include="Themes\Blog\img\posts\carousel\stories5.jpg" />
+    <Content Include="Themes\Blog\img\posts\carousel\stories6.jpg" />
+    <Content Include="Themes\Blog\img\posts\p1.jpg" />
+    <Content Include="Themes\Blog\img\posts\p2.jpg" />
+    <Content Include="Themes\Blog\img\posts\p3.jpg" />
+    <Content Include="Themes\Blog\img\posts\p4.jpg" />
+    <Content Include="Themes\Blog\img\posts\p5.jpg" />
+    <Content Include="Themes\Blog\img\sign.png" />
+    <Content Include="Themes\Blog\img\user.png" />
+    <Content Include="Themes\Blog\js\easing.min.js" />
+    <Content Include="Themes\Blog\js\hoverIntent.js" />
+    <Content Include="Themes\Blog\js\jquery.ajaxchimp.min.js" />
+    <Content Include="Themes\Blog\js\jquery.magnific-popup.min.js" />
+    <Content Include="Themes\Blog\js\jquery.nice-select.min.js" />
+    <Content Include="Themes\Blog\js\jquery.tabs.min.js" />
+    <Content Include="Themes\Blog\js\mail-script.js" />
+    <Content Include="Themes\Blog\js\main.js" />
+    <Content Include="Themes\Blog\js\owl.carousel.min.js" />
+    <Content Include="Themes\Blog\js\slick.js" />
+    <Content Include="Themes\Blog\js\superfish.js" />
+    <Content Include="Themes\Blog\js\superfish.min.js" />
+    <Content Include="Themes\Blog\js\vendor\bootstrap.min.js" />
+    <Content Include="Themes\Blog\js\vendor\jquery-2.2.4.min.js" />
+    <Content Include="Themes\Blog\js\waypoints.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Country\Index.cshtml" />
+    <Content Include="Views\Country\Create.cshtml" />
+    <Content Include="Views\Country\Edit.cshtml" />
+    <Content Include="Views\Country\Delete.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
+    <Content Include="Views\Person\Details.cshtml" />
+    <Content Include="Views\Person\Create.cshtml" />
+    <Content Include="Views\Person\Edit.cshtml" />
+    <Content Include="Views\Person\Delete.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Themes\Blog\css\.DS_Store" />
+    <Content Include="Themes\Blog\css\bootstrap.map" />
+    <Content Include="Themes\Blog\css\main.css.map" />
+    <Content Include="Themes\Blog\css\main.map" />
+    <Content Include="Themes\Blog\fonts\fontawesome-webfont.eot" />
+    <Content Include="Themes\Blog\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Themes\Blog\fonts\fontawesome-webfont.woff" />
+    <Content Include="Themes\Blog\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Themes\Blog\fonts\FontAwesome.otf" />
+    <Content Include="Themes\Blog\fonts\Linearicons-Free.eot" />
+    <Content Include="Themes\Blog\fonts\Linearicons-Free.ttf" />
+    <Content Include="Themes\Blog\fonts\Linearicons-Free.woff" />
+    <Content Include="Themes\Blog\fonts\Linearicons-Free.woff2" />
+    <Content Include="Themes\Blog\img\.DS_Store" />
+    <Content Include="Themes\Blog\img\archive\.DS_Store" />
+    <Content Include="Themes\Blog\img\blog\.DS_Store" />
+    <Content Include="Themes\Blog\img\category\.DS_Store" />
+    <Content Include="Themes\Blog\img\posts\.DS_Store" />
+    <Content Include="Themes\Blog\js\.DS_Store" />
+    <Content Include="Themes\Blog\scss\.DS_Store" />
+    <Content Include="Themes\Blog\scss\bootstrap\.DS_Store" />
+    <Content Include="Themes\Blog\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_navbar-align.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_alert.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_badge.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_button-group.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_buttons.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_card.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_carousel.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_close.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_code.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_forms.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_functions.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_grid.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_images.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_input-group.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_list-group.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_media.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_mixins.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_modal.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_nav.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_navbar.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_pagination.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_popover.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_print.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_progress.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_reboot.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_root.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_tables.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_transitions.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_type.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_utilities.scss" />
+    <Content Include="Themes\Blog\scss\bootstrap\_variables.scss" />
+    <Content Include="Themes\Blog\scss\main.scss" />
+    <Content Include="Themes\Blog\scss\theme\.DS_Store" />
+    <Content Include="Themes\Blog\scss\theme\_elements.scss" />
+    <Content Include="Themes\Blog\scss\theme\_flexbox.scss" />
+    <Content Include="Themes\Blog\scss\theme\_footer.scss" />
+    <Content Include="Themes\Blog\scss\theme\_header.scss" />
+    <Content Include="Themes\Blog\scss\theme\_home.scss" />
+    <Content Include="Themes\Blog\scss\theme\_mixins.scss" />
+    <Content Include="Themes\Blog\scss\theme\_pages.scss" />
+    <Content Include="Themes\Blog\scss\theme\_predefined.scss" />
+    <Content Include="Themes\Blog\scss\theme\_reset.scss" />
+    <Content Include="Themes\Blog\scss\theme\_variables.scss" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Themes\Blog\css\theme\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AzRBlog.Entities\AzRBlog.Entities.csproj">
+      <Project>{b3d91fcc-b866-4906-bccd-377f10ca6c59}</Project>
+      <Name>AzRBlog.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AzRBlog.Repositories\AzRBlog.Repositories.csproj">
+      <Project>{4907a8a1-3e38-443f-b897-147a24c50d94}</Project>
+      <Name>AzRBlog.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AzRBlog.Services\AzRBlog.Services.csproj">
+      <Project>{20f1f243-b172-49cf-8feb-f0e83f2aedfb}</Project>
+      <Name>AzRBlog.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54632</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54632/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
