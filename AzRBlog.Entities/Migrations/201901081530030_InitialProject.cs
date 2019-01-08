@@ -3,7 +3,7 @@ namespace AzRBlog.Entities.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class InitialProject : DbMigration
     {
         public override void Up()
         {
@@ -17,22 +17,24 @@ namespace AzRBlog.Entities.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.People",
+                "dbo.UserProfiles",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 50),
-                        Phone = c.String(nullable: false, maxLength: 20),
-                        Address = c.String(nullable: false, maxLength: 100),
-                        State = c.String(nullable: false, maxLength: 50),
-                        CountryId = c.Int(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 256),
+                        Mobile = c.String(maxLength: 500),
+                        Address = c.String(maxLength: 500),
+                        Biography = c.String(),
+                        ZipCode = c.String(maxLength: 50),
+                        State = c.String(maxLength: 50),
+                        CountryId = c.Int(),
                         CreatedDate = c.DateTime(nullable: false),
                         CreatedBy = c.String(maxLength: 256),
                         UpdatedDate = c.DateTime(nullable: false),
                         UpdatedBy = c.String(maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Countries", t => t.CountryId, cascadeDelete: true)
+                .ForeignKey("dbo.Countries", t => t.CountryId)
                 .Index(t => t.CountryId);
             
             CreateTable(
@@ -63,6 +65,7 @@ namespace AzRBlog.Entities.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        ProfileId = c.Long(nullable: false),
                         Email = c.String(nullable: false, maxLength: 128),
                         EmailConfirmed = c.Boolean(nullable: false),
                         Password = c.String(),
@@ -76,6 +79,8 @@ namespace AzRBlog.Entities.Migrations
                         UserName = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.UserProfiles", t => t.ProfileId, cascadeDelete: true)
+                .Index(t => t.ProfileId)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
             
             CreateTable(
@@ -108,23 +113,25 @@ namespace AzRBlog.Entities.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.UserRoles", "UserId", "dbo.Users");
+            DropForeignKey("dbo.Users", "ProfileId", "dbo.UserProfiles");
             DropForeignKey("dbo.UserLogins", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserClaims", "UserId", "dbo.Users");
             DropForeignKey("dbo.UserRoles", "RoleId", "dbo.Roles");
-            DropForeignKey("dbo.People", "CountryId", "dbo.Countries");
+            DropForeignKey("dbo.UserProfiles", "CountryId", "dbo.Countries");
             DropIndex("dbo.UserLogins", new[] { "UserId" });
             DropIndex("dbo.UserClaims", new[] { "UserId" });
             DropIndex("dbo.Users", "UserNameIndex");
+            DropIndex("dbo.Users", new[] { "ProfileId" });
             DropIndex("dbo.UserRoles", new[] { "RoleId" });
             DropIndex("dbo.UserRoles", new[] { "UserId" });
             DropIndex("dbo.Roles", "RoleNameIndex");
-            DropIndex("dbo.People", new[] { "CountryId" });
+            DropIndex("dbo.UserProfiles", new[] { "CountryId" });
             DropTable("dbo.UserLogins");
             DropTable("dbo.UserClaims");
             DropTable("dbo.Users");
             DropTable("dbo.UserRoles");
             DropTable("dbo.Roles");
-            DropTable("dbo.People");
+            DropTable("dbo.UserProfiles");
             DropTable("dbo.Countries");
         }
     }

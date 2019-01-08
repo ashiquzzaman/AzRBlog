@@ -88,21 +88,9 @@
     <Compile Include="Entity.cs" />
     <Compile Include="IAuditableEntity.cs" />
     <Compile Include="IEntity.cs" />
-    <Compile Include="Migrations\201802120440480_Init.cs" />
-    <Compile Include="Migrations\201802120440480_Init.Designer.cs">
-      <DependentUpon>201802120440480_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802121026301_Accountype.cs" />
-    <Compile Include="Migrations\201802121026301_Accountype.Designer.cs">
-      <DependentUpon>201802121026301_Accountype.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901080457098_userprofile.cs" />
-    <Compile Include="Migrations\201901080457098_userprofile.Designer.cs">
-      <DependentUpon>201901080457098_userprofile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901080551350_addBiography.cs" />
-    <Compile Include="Migrations\201901080551350_addBiography.Designer.cs">
-      <DependentUpon>201901080551350_addBiography.cs</DependentUpon>
+    <Compile Include="Migrations\201901081530030_InitialProject.cs" />
+    <Compile Include="Migrations\201901081530030_InitialProject.Designer.cs">
+      <DependentUpon>201901081530030_InitialProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UserProfile.cs" />
@@ -113,17 +101,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802120440480_Init.resx">
-      <DependentUpon>201802120440480_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802121026301_Accountype.resx">
-      <DependentUpon>201802121026301_Accountype.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901080457098_userprofile.resx">
-      <DependentUpon>201901080457098_userprofile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901080551350_addBiography.resx">
-      <DependentUpon>201901080551350_addBiography.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901081530030_InitialProject.resx">
+      <DependentUpon>201901081530030_InitialProject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

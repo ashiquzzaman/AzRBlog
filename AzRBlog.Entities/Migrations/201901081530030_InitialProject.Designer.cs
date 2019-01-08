@@ -7,13 +7,13 @@ namespace AzRBlog.Entities.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Init : IMigrationMetadata
+    public sealed partial class InitialProject : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialProject));
         
         string IMigrationMetadata.Id
         {
-            get { return "201802120440480_Init"; }
+            get { return "201901081530030_InitialProject"; }
         }
         
         string IMigrationMetadata.Source
