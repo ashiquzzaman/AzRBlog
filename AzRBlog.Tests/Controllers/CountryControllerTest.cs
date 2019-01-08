@@ -1,10 +1,10 @@
 ﻿using AzRBlog.Entities;
 using AzRBlog.Services;
+using AzRBlog.Web.Areas.Admin.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using AzRBlog.Web.Controllers;
 
 namespace AzRBlog.Tests.Controllers
 {

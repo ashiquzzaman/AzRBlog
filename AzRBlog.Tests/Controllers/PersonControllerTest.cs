@@ -1,10 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using AzRBlog.Entities;
+﻿using AzRBlog.Entities;
 using AzRBlog.Services;
+using AzRBlog.Web.Areas.Admin.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using AzRBlog.Web.Controllers;
 
 namespace AzRBlog.Tests.Controllers
 {
@@ -14,7 +14,7 @@ namespace AzRBlog.Tests.Controllers
     {
         private Mock<ICountryManager> _countryManagerMock;
         private Mock<IPersonManager> _personManagerMock;
-        PersonController objController;
+        UserController objController;
         List<Person> list;
 
         [TestInitialize]
@@ -23,7 +23,7 @@ namespace AzRBlog.Tests.Controllers
 
             _countryManagerMock = new Mock<ICountryManager>();
             _personManagerMock = new Mock<IPersonManager>();
-            objController = new PersonController(_personManagerMock.Object, _countryManagerMock.Object);
+            objController = new UserController(_personManagerMock.Object, _countryManagerMock.Object);
             list = new List<Person>() {
                 new Person { Id = 1, Name = "Ashiq",Phone="000001",Address="Dhaka",State="Shyamoli",CountryId=1},
                 new Person { Id = 2, Name = "Rajib",Phone="000002",Address="Khulna",State="Rupsha",CountryId=1},
