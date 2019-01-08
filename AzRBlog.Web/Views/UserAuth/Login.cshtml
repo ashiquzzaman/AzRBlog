@@ -48,7 +48,7 @@
                                 <i class="input-helper"></i>
                             </label>
                         </div>
-                        <a href="#" class="text-small forgot-password text-black">Forgot Password</a>
+                        <a href="@Url.Action("ForgotPassword", "UserAuth",new{area=""})" class="text-small forgot-password text-black">Forgot Password</a>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-block g-login">
@@ -64,7 +64,7 @@
             </div>
             <ul class="auth-footer">
                 <li>
-                    <a href="#">Conditions</a>
+                    <a href="@Url.Action("Index","Home",new{area=""})">Home</a>
                 </li>
                 <li>
                     <a href="#">Help</a>

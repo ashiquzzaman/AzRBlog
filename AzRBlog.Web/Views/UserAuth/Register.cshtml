@@ -6,7 +6,7 @@
 <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
     <div class="row w-100">
         <div class="col-lg-4 mx-auto">
-            <h2 class="text-center mb-4">Register</h2>
+            <h2 class="text-center mb-4">@ViewBag.Title</h2>
             <div class="auto-form-wrapper">
                 @using (Html.BeginForm("Register", "UserAuth", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                 {
@@ -92,6 +92,24 @@
 
                 }
             </div>
+            <ul class="auth-footer">
+                <li>
+                    <a href="@Url.Action("Index","Home",new{area=""})">Home</a>
+                </li>
+                <li>
+                    <a href="#">Help</a>
+                </li>
+                <li>
+                    <a href="#">Terms</a>
+                </li>
+            </ul>
+            <p class="footer-text text-center">
+                Copyright ©
+                <script>document.write(new Date().getFullYear());</script>
+                <a href="https://stackoverflow.com/users/3557266/ashiquzzaman" target="_blank">AzR</a>. All rights reserved.
+            </p>
+
+        
         </div>
     </div>
 </div>
