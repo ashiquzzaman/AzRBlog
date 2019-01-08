@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace AzRBlog.Services
 {
-    public abstract class EntityManager<T> : IEntityManager<T> where T : BaseEntity
+    public abstract class BaseService<T> : IBaseService<T> where T : BaseEntity
     {
         private readonly IRepository<T> _repository;
 
-        public EntityManager(IRepository<T> repository)
+        public BaseService(IRepository<T> repository)
         {
             _repository = repository;
         }

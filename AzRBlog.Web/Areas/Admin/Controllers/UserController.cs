@@ -7,9 +7,9 @@ namespace AzRBlog.Web.Areas.Admin.Controllers
 {
     public class UserController : Controller
     {
-        IPersonManager _Person;
-        ICountryManager _Country;
-        public UserController(IPersonManager person, ICountryManager country)
+        IUserProfileService _Person;
+        ICountryService _Country;
+        public UserController(IUserProfileService person, ICountryService country)
         {
             _Person = person;
             _Country = country;
@@ -28,7 +28,7 @@ namespace AzRBlog.Web.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = _Person.GetById(id.Value);
+            UserProfile person = _Person.GetById(id.Value);
             if (person == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace AzRBlog.Web.Areas.Admin.Controllers
         // POST: /Person/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Phone,Address,State,CountryId")] Person person)
+        public ActionResult Create([Bind(Include = "Id,Name,Phone,Address,State,CountryId")] UserProfile person)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace AzRBlog.Web.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = _Person.GetById(id.Value);
+            UserProfile person = _Person.GetById(id.Value);
             if (person == null)
             {
                 return HttpNotFound();
@@ -77,7 +77,7 @@ namespace AzRBlog.Web.Areas.Admin.Controllers
         // POST: /Person/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Phone,Address,State,CountryId")] Person person)
+        public ActionResult Edit([Bind(Include = "Id,Name,Phone,Address,State,CountryId")] UserProfile person)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace AzRBlog.Web.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Person person = _Person.GetById(id.Value);
+            UserProfile person = _Person.GetById(id.Value);
             if (person == null)
             {
                 return HttpNotFound();
@@ -108,7 +108,7 @@ namespace AzRBlog.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(long id)
         {
-            Person person = _Person.GetById(id);
+            UserProfile person = _Person.GetById(id);
             _Person.Delete(person);
             return RedirectToAction("Index");
         }

@@ -45,13 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CountryManager.cs" />
+    <Compile Include="CountryServece.cs" />
     <Compile Include="BaseService.cs" />
-    <Compile Include="ICountryManager.cs" />
-    <Compile Include="IEntityManager.cs" />
-    <Compile Include="IManager.cs" />
-    <Compile Include="IPersonManager.cs" />
-    <Compile Include="PersonManager.cs" />
+    <Compile Include="ICountryService.cs" />
+    <Compile Include="IBaseService.cs" />
+    <Compile Include="IUserProfileService.cs" />
+    <Compile Include="UserProfileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

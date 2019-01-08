@@ -65,6 +65,15 @@ namespace AzRBlog.Web.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Full Name")]
+        public string FullName { get; set; }
+
+        [Phone]
+        [Display(Name = "Phone")]
+        public string PhoneNumber { get; set; }
+
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -79,6 +88,7 @@ namespace AzRBlog.Web.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        public bool IsAgreeTermAndCondition { get; set; }
     }
 
     public class ResetPasswordViewModel

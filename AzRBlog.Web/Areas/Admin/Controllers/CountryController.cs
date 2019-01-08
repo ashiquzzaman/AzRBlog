@@ -8,9 +8,9 @@ namespace AzRBlog.Web.Areas.Admin.Controllers
     {
 
         //initialize service object
-        private readonly ICountryManager _country;
+        private readonly ICountryService _country;
 
-        public CountryController(ICountryManager country)
+        public CountryController(ICountryService country)
         {
             _country = country;
         }

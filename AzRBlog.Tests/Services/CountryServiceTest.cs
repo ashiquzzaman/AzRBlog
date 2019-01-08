@@ -1,24 +1,24 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
+﻿using System.Collections.Generic;
 using AzRBlog.Entities;
-using AzRBlog.Services;
 using AzRBlog.Repositories;
-using System.Collections.Generic;
+using AzRBlog.Services;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 
-namespace AzRBlog.Tests.Managers
+namespace AzRBlog.Tests.Services
 {
     [TestClass]
-    public class CountryManagerTest
+    public class CountryServiceTest
     {
         private Mock<ICountryRepository> _mockRepository;
-        private ICountryManager _service;
+        private ICountryService _service;
         List<Country> list;
 
         [TestInitialize]
         public void Initialize()
         {
             _mockRepository = new Mock<ICountryRepository>();
-            _service = new CountryManager(_mockRepository.Object);
+            _service = new CountryServece(_mockRepository.Object);
             list = new List<Country> {
                 new Country { Id = 1, Name = "US" },
                 new Country { Id = 2, Name = "India" },

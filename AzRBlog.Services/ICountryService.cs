@@ -2,7 +2,7 @@
 
 namespace AzRBlog.Services
 {
-    public interface ICountryManager : IEntityManager<Country>
+    public interface ICountryService : IBaseService<Country>
     {
         Country GetById(int id);
     }

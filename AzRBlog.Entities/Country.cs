@@ -8,7 +8,7 @@ namespace AzRBlog.Entities
     {
         public Country()
         {
-            Persons = new List<Person>();
+            Persons = new List<UserProfile>();
         }
 
         [Required]
@@ -18,6 +18,6 @@ namespace AzRBlog.Entities
             ErrorMessage = "Only Alphanumeric & [-/_'] Special Characters Are Allowed.")]
         public string Name { get; set; }
 
-        public List<Person> Persons { get; set; }
+        public List<UserProfile> Persons { get; set; }
     }
 }

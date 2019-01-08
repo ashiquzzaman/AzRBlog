@@ -5,20 +5,20 @@ using System.Linq;
 
 namespace AzRBlog.Repositories
 {
-    public class PersonRepository : Repository<Person>, IPersonRepository
+    public class UserProfileRepository : Repository<UserProfile>, IUserProfileRepository
     {
-        public PersonRepository(DbContext context)
+        public UserProfileRepository(DbContext context)
             : base(context)
         {
 
         }
 
-        public override IEnumerable<Person> GetAll()
+        public override IEnumerable<UserProfile> GetAll()
         {
-            return _dbContext.Set<Person>().Include(x => x.Country).AsEnumerable();
+            return _dbContext.Set<UserProfile>().Include(x => x.Country).AsEnumerable();
         }
 
-        public Person GetById(long id)
+        public UserProfile GetById(long id)
         {
             return _dbset.Include(x => x.Country).Where(x => x.Id == id).FirstOrDefault();
         }

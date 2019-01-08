@@ -3,11 +3,11 @@ using AzRBlog.Repositories;
 
 namespace AzRBlog.Services
 {
-    public class CountryManager : EntityManager<Country>, ICountryManager
+    public class CountryServece : BaseService<Country>, ICountryService
     {
         ICountryRepository _country;
 
-        public CountryManager(ICountryRepository country)
+        public CountryServece(ICountryRepository country)
             : base(country)
         {
             _country = country;

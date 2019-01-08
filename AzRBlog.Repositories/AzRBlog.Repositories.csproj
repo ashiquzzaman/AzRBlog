@@ -54,9 +54,9 @@
   <ItemGroup>
     <Compile Include="CountryRepository.cs" />
     <Compile Include="ICountryRepository.cs" />
-    <Compile Include="IPersonRepository.cs" />
+    <Compile Include="IUserProfileRepository.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="PersonRepository.cs" />
+    <Compile Include="UserProfileRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
   </ItemGroup>

@@ -1,41 +1,152 @@
 ﻿@model AzRBlog.Web.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
+    Layout = null;
 }
 
-<h2>@ViewBag.Title.</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>AzR Blog</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/Themes/Admin/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/Themes/Admin/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/Themes/Admin/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/Themes/Admin/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/Themes/Admin/images/favicon.png" />
+</head>
 
-@section Scripts {
+<body>
+    
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
+            <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
+                <div class="row w-100">
+                    <div class="col-lg-4 mx-auto">
+                        <h2 class="text-center mb-4">Register</h2>
+                        <div class="auto-form-wrapper">
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" name="FullName" id="FullName" class="form-control" placeholder="Full Name">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" name="Email" id="Email" class="form-control" placeholder="Email as Username">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" name="PhoneNumber" id="PhoneNumber" class="form-control" placeholder="Phone / Mobile Number">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="Password" id="Password"  placeholder="Password">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control" placeholder="Confirm Password">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group d-flex justify-content-center">
+                                    <div class="form-check form-check-flat mt-0">
+                                        <label class="form-check-label">
+                                            <input type="checkbox" 
+                                                   @*name="IsAgreeTermAndCondition" 
+                                                   id="IsAgreeTermAndCondition"*@ 
+                                                   class="form-check-input" 
+                                                   checked="@(Model.IsAgreeTermAndCondition)" 
+                                                   value="@(Model.IsAgreeTermAndCondition)" > 
+                                            I agree to the terms
+                                            <i class="input-helper"></i>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary submit-btn btn-block">Register</button>
+                                </div>
+                                <div class="text-block text-center my-3">
+                                    <span class="text-small font-weight-semibold">Already have and account ?</span>
+                                    <a href="@Url.Action("Login","Account",new{area=""})" class="text-black text-small">Login</a>
+                                </div>
+                      
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+
+
+
+
+<!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/Themes/Admin/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/Themes/Admin/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/Themes/Admin/js/off-canvas.js"></script>
+    <script src="/Themes/Admin/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/Themes/Admin/js/dashboard.js"></script>
+    <!-- End custom js for this page-->
+
     @Scripts.Render("~/bundles/jqueryval")
-}
+
+</body>
+
+</html>
+

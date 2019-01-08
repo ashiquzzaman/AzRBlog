@@ -19,7 +19,7 @@ namespace AzRBlog.Entities
             return new ApplicationDbContext();
         }
 
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<UserProfile> Persons { get; set; }
         public DbSet<Country> Countries { get; set; }
 
 

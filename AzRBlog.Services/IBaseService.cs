@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 namespace AzRBlog.Services
 {
-    public interface IEntityManager<T> : IManager
-        where T : BaseEntity
+    public interface IBaseService<T> where T : BaseEntity
     {
         void Create(T entity);
         void Delete(T entity);

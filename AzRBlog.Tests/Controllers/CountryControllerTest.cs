@@ -11,14 +11,14 @@ namespace AzRBlog.Tests.Controllers
     [TestClass]
     public class CountryControllerTest
     {
-        private Mock<ICountryManager> _countryManagerMock;
+        private Mock<ICountryService> _countryManagerMock;
         private CountryController _countryController;
         private List<Country> _countryList;
 
         [TestInitialize]
         public void Initialize()
         {
-            _countryManagerMock = new Mock<ICountryManager>();
+            _countryManagerMock = new Mock<ICountryService>();
             _countryController = new CountryController(_countryManagerMock.Object);
             _countryList = new List<Country>
             {

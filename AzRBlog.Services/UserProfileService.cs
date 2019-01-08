@@ -3,18 +3,18 @@ using AzRBlog.Repositories;
 
 namespace AzRBlog.Services
 {
-    public class PersonManager : EntityManager<Person>, IPersonManager
+    public class UserProfileService : BaseService<UserProfile>, IUserProfileService
     {
-        IPersonRepository _person;
+        IUserProfileRepository _person;
 
-        public PersonManager(IPersonRepository person)
+        public UserProfileService(IUserProfileRepository person)
             : base(person)
         {
             _person = person;
         }
 
 
-        public Person GetById(long Id)
+        public UserProfile GetById(long Id)
         {
             return _person.GetById(Id);
         }

@@ -61,14 +61,35 @@
                         </li>
                         <li><a href="@Url.Action("Index","Blog",new{area=""})">Category</a></li>
                         <li><a href="@Url.Action("Index","Blog",new{area=""})">Archive</a></li>
-                       
-                        @*<li class="menu-has-children">
-                            <a href="">Blog</a>
-                            <ul>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>*@
+
+
                         <li><a href="@Url.Action("Contact","Home",new{area=""})">Contact</a></li>
+
+                        @if (!Request.IsAuthenticated)
+                        {
+                            <li><a href="@Url.Action("Register","Account",new{area=""})">Register</a></li>
+                            <li><a href="@Url.Action("Login","Account",new{area=""})">Login</a></li>
+                        }
+                        else
+                        {
+                            <li class="menu-has-children">
+                                <a href="">My Account</a>
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("Index","Dashboard",new{area=""})">
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })){@Html.AntiForgeryToken()}
+                                        <a href="javascript:document.getElementById('logoutForm').submit()">
+                                            Log off
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
                     </ul>
                 </nav>
             </div>
