@@ -330,7 +330,6 @@
     <Content Include="Themes\Admin\images\faces\face8.jpg" />
     <Content Include="Themes\Admin\images\faces\face9.jpg" />
     <Content Include="Themes\Admin\images\faces\face1.jpg" />
-    <Content Include="Themes\Admin\images\favicon.png" />
     <Content Include="Themes\Admin\images\flags\AD.png" />
     <Content Include="Themes\Admin\images\flags\AE.png" />
     <Content Include="Themes\Admin\images\flags\AG.png" />
@@ -431,8 +430,6 @@
     <Content Include="Themes\Admin\images\flags\VE.png" />
     <Content Include="Themes\Admin\images\flags\VN.png" />
     <Content Include="Themes\Admin\images\flags\YE.png" />
-    <Content Include="Themes\Admin\images\logo-mini.svg" />
-    <Content Include="Themes\Admin\images\logo.svg" />
     <Content Include="Themes\Admin\images\samples\weather.svg" />
     <Content Include="Themes\Admin\js\chart.js" />
     <Content Include="Themes\Admin\js\dashboard.js" />
@@ -2553,7 +2550,6 @@
     <Content Include="Themes\Admin\vendors\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Themes\Admin\vendors\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\Shared\Index.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout - Copy.cshtml" />
     <Content Include="Areas\Admin\Views\Report\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
