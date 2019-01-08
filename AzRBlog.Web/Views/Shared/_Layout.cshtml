@@ -81,9 +81,8 @@
                                         </a>
                                     </li>
                                     <li>
-                                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })){@Html.AntiForgeryToken()}
                                         <a href="javascript:document.getElementById('logoutForm').submit()">
-                                            Log off
+                                            Sign Out
                                         </a>
                                     </li>
                                 </ul>
@@ -180,7 +179,7 @@
         </div>
     </footer>
     <!-- End footer Area -->
-
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })){@Html.AntiForgeryToken()}
 
     <script src="/Themes/Blog/js/vendor/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

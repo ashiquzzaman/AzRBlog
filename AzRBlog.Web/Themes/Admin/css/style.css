@@ -1,8 +1,8 @@
 /*------------------------------------------------------------------
  [Master Stylesheet]
 
-  Project:	Star Admin Bootstrap Template [Free Version]
-  Version:	2.0.0
+  Project:	AzR BLog
+  Version:	1.0.0
 -------------------------------------------------------------------*/
 /*-------------------------------------------------------------------
   ===== Table of Contents =====
@@ -16302,3 +16302,6 @@ ul {
     border-left: 3px solid rgba(255, 255, 255, 0.2); } }
 
 /*# sourceMappingURL=maps/style.css.map */
+.main-container {
+    min-height: 700px;
+}

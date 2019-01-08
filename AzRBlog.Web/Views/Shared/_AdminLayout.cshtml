@@ -271,7 +271,9 @@
     </nav>
     <!-- partial -->
     <div class="main-panel">
-        @RenderBody()
+        <div id="mainContainer" class="main-container">
+            @RenderBody()
+        </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
@@ -292,7 +294,7 @@
 </div>
 <!-- page-body-wrapper ends -->
 </div>
-@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" })){@Html.AntiForgeryToken()}
+@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })){@Html.AntiForgeryToken()}
             <!-- container-scroller -->
             <!-- plugins:js -->
             <script src="/Themes/Admin/vendors/js/vendor.bundle.base.js"></script>
