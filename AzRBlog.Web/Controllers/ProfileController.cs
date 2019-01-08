@@ -1,25 +1,25 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using AzRBlog.Web.Models;
+﻿using AzRBlog.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace AzRBlog.Web.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ProfileController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public ManageController()
+        public ProfileController()
         {
         }
 
-        public ManageController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public ProfileController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -31,9 +31,9 @@ namespace AzRBlog.Web.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -50,7 +50,7 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // GET: /Manage/Index
+        // GET: /Profile/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -75,7 +75,7 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // POST: /Manage/RemoveLogin
+        // POST: /Profile/RemoveLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
@@ -99,14 +99,14 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // GET: /Manage/AddPhoneNumber
+        // GET: /Profile/AddPhoneNumber
         public ActionResult AddPhoneNumber()
         {
             return View();
         }
 
         //
-        // POST: /Manage/AddPhoneNumber
+        // POST: /Profile/AddPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AddPhoneNumber(AddPhoneNumberViewModel model)
@@ -130,7 +130,7 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // POST: /Manage/EnableTwoFactorAuthentication
+        // POST: /Profile/EnableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EnableTwoFactorAuthentication()
@@ -141,11 +141,11 @@ namespace AzRBlog.Web.Controllers
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
-            return RedirectToAction("Index", "Manage");
+            return RedirectToAction("Index", "Profile");
         }
 
         //
-        // POST: /Manage/DisableTwoFactorAuthentication
+        // POST: /Profile/DisableTwoFactorAuthentication
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DisableTwoFactorAuthentication()
@@ -156,11 +156,11 @@ namespace AzRBlog.Web.Controllers
             {
                 await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
             }
-            return RedirectToAction("Index", "Manage");
+            return RedirectToAction("Index", "Profile");
         }
 
         //
-        // GET: /Manage/VerifyPhoneNumber
+        // GET: /Profile/VerifyPhoneNumber
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
             var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
@@ -169,7 +169,7 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // POST: /Manage/VerifyPhoneNumber
+        // POST: /Profile/VerifyPhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyPhoneNumber(VerifyPhoneNumberViewModel model)
@@ -194,7 +194,7 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // POST: /Manage/RemovePhoneNumber
+        // POST: /Profile/RemovePhoneNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RemovePhoneNumber()
@@ -213,14 +213,14 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // GET: /Manage/ChangePassword
+        // GET: /Profile/ChangePassword
         public ActionResult ChangePassword()
         {
             return View();
         }
 
         //
-        // POST: /Manage/ChangePassword
+        // POST: /Profile/ChangePassword
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ChangePassword(ChangePasswordViewModel model)
@@ -244,14 +244,14 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // GET: /Manage/SetPassword
+        // GET: /Profile/SetPassword
         public ActionResult SetPassword()
         {
             return View();
         }
 
         //
-        // POST: /Manage/SetPassword
+        // POST: /Profile/SetPassword
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SetPassword(SetPasswordViewModel model)
@@ -276,7 +276,7 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // GET: /Manage/ManageLogins
+        // GET: /Profile/ManageLogins
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -299,17 +299,17 @@ namespace AzRBlog.Web.Controllers
         }
 
         //
-        // POST: /Manage/LinkLogin
+        // POST: /Profile/LinkLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider)
         {
             // Request a redirect to the external login provider to link a login for the current user
-            return new AccountController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Manage"), User.Identity.GetUserId());
+            return new UserAuthController.ChallengeResult(provider, Url.Action("LinkLoginCallback", "Profile"), User.Identity.GetUserId());
         }
 
         //
-        // GET: /Manage/LinkLoginCallback
+        // GET: /Profile/LinkLoginCallback
         public async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
@@ -332,7 +332,7 @@ namespace AzRBlog.Web.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -383,6 +383,6 @@ namespace AzRBlog.Web.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }
