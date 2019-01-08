@@ -16302,6 +16302,47 @@ ul {
     border-left: 3px solid rgba(255, 255, 255, 0.2); } }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+/*=====================AzR Custome=====================================*/
+
+.navbar.default-layout {
+    background: linear-gradient(120deg, #00e4d0, #3581a5);
+
+}
+
 .main-container {
     min-height: 700px;
 }
+
+
+.navbar-brand-wrapper {
+    background-color: #25aec5 !important;
+    color: #FFFFFF !important;
+}
+.sidebar {
+    background-color: #efefef;
+    /*background: linear-gradient(120deg, #53cade, #1b93a7);*/
+    transition: background 0.25s ease;
+    -webkit-transition: background 0.25s ease;
+    -moz-transition: background 0.25s ease;
+    -ms-transition: background 0.25s ease;
+    /*color: #FFFFFF !important;*/
+}
+.designation {
+    color: #756d6d !important
+}
+.form-control {
+     border: 1px solid #dadada;
+}
+/*.nav-profile {
+    color: #FFFFFF !important;
+    border-bottom: 1px solid #bcbec9;
+}
+
+
+ .sidebar .menu-title, .sidebar i {
+     color: #FFFFFF !important;
+ }
+ .sidebar .nav-item:hover, .sidebar .menu-title:hover, .sidebar i:hover {
+     color: #000000 !important;
+ }*/
