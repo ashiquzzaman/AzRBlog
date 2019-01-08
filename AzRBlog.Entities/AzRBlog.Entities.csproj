@@ -96,8 +96,16 @@
     <Compile Include="Migrations\201802121026301_Accountype.Designer.cs">
       <DependentUpon>201802121026301_Accountype.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901080457098_userprofile.cs" />
+    <Compile Include="Migrations\201901080457098_userprofile.Designer.cs">
+      <DependentUpon>201901080457098_userprofile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901080551350_addBiography.cs" />
+    <Compile Include="Migrations\201901080551350_addBiography.Designer.cs">
+      <DependentUpon>201901080551350_addBiography.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +118,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802121026301_Accountype.resx">
       <DependentUpon>201802121026301_Accountype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901080457098_userprofile.resx">
+      <DependentUpon>201901080457098_userprofile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901080551350_addBiography.resx">
+      <DependentUpon>201901080551350_addBiography.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

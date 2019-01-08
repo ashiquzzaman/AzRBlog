@@ -1,24 +1,24 @@
 ﻿using AzRBlog.Entities;
 using AzRBlog.Services;
+using AzRBlog.Web.Areas.Admin.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using AzRBlog.Web.Controllers;
 
 namespace AzRBlog.Tests.Controllers
 {
     [TestClass]
     public class CountryControllerTest
     {
-        private Mock<ICountryManager> _countryManagerMock;
+        private Mock<ICountryService> _countryManagerMock;
         private CountryController _countryController;
         private List<Country> _countryList;
 
         [TestInitialize]
         public void Initialize()
         {
-            _countryManagerMock = new Mock<ICountryManager>();
+            _countryManagerMock = new Mock<ICountryService>();
             _countryController = new CountryController(_countryManagerMock.Object);
             _countryList = new List<Country>
             {

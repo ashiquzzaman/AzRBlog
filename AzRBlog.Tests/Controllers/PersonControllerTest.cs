@@ -1,10 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using AzRBlog.Entities;
+﻿using AzRBlog.Entities;
 using AzRBlog.Services;
+using AzRBlog.Web.Areas.Admin.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using AzRBlog.Web.Controllers;
 
 namespace AzRBlog.Tests.Controllers
 {
@@ -12,22 +12,22 @@ namespace AzRBlog.Tests.Controllers
 
     public class PersonControllerTest
     {
-        private Mock<ICountryManager> _countryManagerMock;
-        private Mock<IPersonManager> _personManagerMock;
-        PersonController objController;
-        List<Person> list;
+        private Mock<ICountryService> _countryManagerMock;
+        private Mock<IUserProfileService> _personManagerMock;
+        UserController objController;
+        List<UserProfile> list;
 
         [TestInitialize]
         public void Initialize()
         {
 
-            _countryManagerMock = new Mock<ICountryManager>();
-            _personManagerMock = new Mock<IPersonManager>();
-            objController = new PersonController(_personManagerMock.Object, _countryManagerMock.Object);
-            list = new List<Person>() {
-                new Person { Id = 1, Name = "Ashiq",Phone="000001",Address="Dhaka",State="Shyamoli",CountryId=1},
-                new Person { Id = 2, Name = "Rajib",Phone="000002",Address="Khulna",State="Rupsha",CountryId=1},
-                new Person { Id = 3, Name = "Zaman",Phone="000003",Address="Jessore",State="N.para",CountryId=1}
+            _countryManagerMock = new Mock<ICountryService>();
+            _personManagerMock = new Mock<IUserProfileService>();
+            objController = new UserController(_personManagerMock.Object, _countryManagerMock.Object);
+            list = new List<UserProfile>() {
+                new UserProfile { Id = 1, Name = "Ashiq",Mobile="000001",Address="Dhaka",State="Shyamoli",CountryId=1},
+                new UserProfile { Id = 2, Name = "Rajib",Mobile="000002",Address="Khulna",State="Rupsha",CountryId=1},
+                new UserProfile { Id = 3, Name = "Zaman",Mobile="000003",Address="Jessore",State="N.para",CountryId=1}
             };
         }
         [TestMethod]
@@ -37,7 +37,7 @@ namespace AzRBlog.Tests.Controllers
             _personManagerMock.Setup(x => x.GetAll()).Returns(list);
 
             //Act
-            var result = ((objController.Index() as ViewResult).Model) as List<Person>;
+            var result = ((objController.Index() as ViewResult).Model) as List<UserProfile>;
 
             //Assert
             Assert.AreEqual(result.Count, 3);

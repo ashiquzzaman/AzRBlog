@@ -24,7 +24,7 @@ namespace AzRBlog.Tests.Repositories
             Configuration.LazyLoadingEnabled = false;
         }
 
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<UserProfile> Persons { get; set; }
         public DbSet<Country> Countries { get; set; }
 
 
