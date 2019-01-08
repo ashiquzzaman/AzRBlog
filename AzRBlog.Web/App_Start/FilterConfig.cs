@@ -6,7 +6,11 @@ namespace AzRBlog.Web
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+#if DEBUG
             filters.Add(new HandleErrorAttribute());
+#else
+              filters.Add(new AzRBlog.Web.Filters.AzRExceptionFilterAttribute());
+#endif
         }
     }
 }

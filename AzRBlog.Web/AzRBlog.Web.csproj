@@ -214,14 +214,19 @@
     <Compile Include="Areas\Admin\Controllers\PostController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\TagController.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\UserAuthController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountryController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Controllers\ReportController.cs" />
+    <Compile Include="Filters\AdminAuthorizeAttribute.cs" />
+    <Compile Include="Filters\AzRExceptionFilterAttribute.cs" />
+    <Compile Include="Filters\ETagAttribute.cs" />
+    <Compile Include="Filters\HttpModelValidatorAttribute.cs" />
+    <Compile Include="Filters\UserAuthorizeAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2228,24 +2233,24 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\UserAuth\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\UserAuth\ConfirmEmail.cshtml" />
+    <Content Include="Views\UserAuth\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\UserAuth\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\UserAuth\ForgotPassword.cshtml" />
+    <Content Include="Views\UserAuth\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\UserAuth\Login.cshtml" />
+    <Content Include="Views\UserAuth\Register.cshtml" />
+    <Content Include="Views\UserAuth\ResetPassword.cshtml" />
+    <Content Include="Views\UserAuth\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\UserAuth\SendCode.cshtml" />
+    <Content Include="Views\UserAuth\VerifyCode.cshtml" />
+    <Content Include="Views\Profile\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Profile\ChangePassword.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Profile\ManageLogins.cshtml" />
+    <Content Include="Views\Profile\SetPassword.cshtml" />
+    <Content Include="Views\Profile\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Country\Index.cshtml" />
@@ -2551,6 +2556,8 @@
     <Content Include="Themes\Admin\vendors\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\Shared\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Report\Index.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Shared\_PublicLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

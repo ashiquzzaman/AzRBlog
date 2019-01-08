@@ -11,16 +11,16 @@ using System.Web.Mvc;
 namespace AzRBlog.Web.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class UserAuthController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-        public AccountController()
+        public UserAuthController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public UserAuthController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -369,7 +369,7 @@ namespace AzRBlog.Web.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Manage");
+                return RedirectToAction("Index", "Profile");
             }
 
             if (ModelState.IsValid)

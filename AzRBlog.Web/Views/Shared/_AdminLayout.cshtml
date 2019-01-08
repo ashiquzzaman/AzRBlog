@@ -300,7 +300,7 @@
         </div>
         <!-- page-body-wrapper ends -->
     </div>
-    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    @using (Html.BeginForm("LogOff", "UserAuth", FormMethod.Post, new { id = "logoutForm" }))
     {@Html.AntiForgeryToken()}
     <!-- container-scroller -->
     <!-- plugins:js -->
