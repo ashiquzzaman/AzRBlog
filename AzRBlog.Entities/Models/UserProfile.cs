@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using AzRBlog.Entities.Configs;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace AzRBlog.Entities
+namespace AzRBlog.Entities.Models
 {
     public class UserProfile : AuditableEntity<long>
     {

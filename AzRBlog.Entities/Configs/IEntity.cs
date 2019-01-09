@@ -1,4 +1,4 @@
-﻿namespace AzRBlog.Entities
+﻿namespace AzRBlog.Entities.Configs
 {
 
     public interface IEntity<T>

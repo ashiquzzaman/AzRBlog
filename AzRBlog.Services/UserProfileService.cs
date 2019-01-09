@@ -1,4 +1,4 @@
-﻿using AzRBlog.Entities;
+﻿using AzRBlog.Entities.Models;
 using AzRBlog.Repositories;
 
 namespace AzRBlog.Services

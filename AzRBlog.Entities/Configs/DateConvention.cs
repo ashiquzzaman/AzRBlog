@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 
-namespace AzRBlog.Entities
+namespace AzRBlog.Entities.Configs
 {
     public class DateConvention : Convention
     {

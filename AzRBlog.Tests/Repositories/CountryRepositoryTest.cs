@@ -1,4 +1,4 @@
-﻿using AzRBlog.Entities;
+﻿using AzRBlog.Entities.Models;
 using AzRBlog.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;

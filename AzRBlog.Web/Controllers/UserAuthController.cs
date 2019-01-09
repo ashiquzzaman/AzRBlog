@@ -1,4 +1,4 @@
-﻿using AzRBlog.Entities;
+﻿using AzRBlog.Entities.Models;
 using AzRBlog.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;

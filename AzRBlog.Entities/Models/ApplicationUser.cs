@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace AzRBlog.Entities
+namespace AzRBlog.Entities.Models
 {
     public class ApplicationUser : IdentityUser
     {

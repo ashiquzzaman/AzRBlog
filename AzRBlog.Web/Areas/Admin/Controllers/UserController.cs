@@ -1,4 +1,4 @@
-﻿using AzRBlog.Entities;
+﻿using AzRBlog.Entities.Models;
 using AzRBlog.Services;
 using System.Net;
 using System.Web.Mvc;

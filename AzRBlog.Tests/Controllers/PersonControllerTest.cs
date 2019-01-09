@@ -1,4 +1,4 @@
-﻿using AzRBlog.Entities;
+﻿using AzRBlog.Entities.Models;
 using AzRBlog.Services;
 using AzRBlog.Web.Areas.Admin.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

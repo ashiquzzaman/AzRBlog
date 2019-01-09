@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using AzRBlog.Entities;
+﻿using AzRBlog.Entities.Models;
 using AzRBlog.Repositories;
 using AzRBlog.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Collections.Generic;
 
 namespace AzRBlog.Tests.Services
 {

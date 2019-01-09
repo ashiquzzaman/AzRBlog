@@ -80,20 +80,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
-    <Compile Include="ApplicationUser.cs" />
-    <Compile Include="AuditableEntity.cs" />
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="Country.cs" />
-    <Compile Include="DateConvention.cs" />
-    <Compile Include="Entity.cs" />
-    <Compile Include="IAuditableEntity.cs" />
-    <Compile Include="IEntity.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Configs\AuditableEntity.cs" />
+    <Compile Include="Configs\BaseEntity.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Configs\DateConvention.cs" />
+    <Compile Include="Models\Entity.cs" />
+    <Compile Include="Configs\IAuditableEntity.cs" />
+    <Compile Include="Configs\IEntity.cs" />
     <Compile Include="Migrations\201901081530030_InitialProject.cs" />
     <Compile Include="Migrations\201901081530030_InitialProject.Designer.cs">
       <DependentUpon>201901081530030_InitialProject.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="UserProfile.cs" />
+    <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

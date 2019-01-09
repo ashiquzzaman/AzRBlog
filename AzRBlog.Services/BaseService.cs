@@ -1,4 +1,4 @@
-﻿using AzRBlog.Entities;
+﻿using AzRBlog.Entities.Configs;
 using AzRBlog.Repositories;
 using System;
 using System.Collections.Generic;

@@ -1,7 +1,8 @@
-﻿using System;
+﻿using AzRBlog.Entities.Models;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace AzRBlog.Entities
+namespace AzRBlog.Entities.Configs
 {
 
     public abstract class AuditableEntity<T> : Entity<T>, IAuditableEntity

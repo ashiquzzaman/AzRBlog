@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace AzRBlog.Entities
+namespace AzRBlog.Entities.Models
 {
 
     public class Country : Entity<int>

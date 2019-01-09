@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AzRBlog.Entities
+namespace AzRBlog.Entities.Configs
 {
 
     public interface IAuditableEntity
