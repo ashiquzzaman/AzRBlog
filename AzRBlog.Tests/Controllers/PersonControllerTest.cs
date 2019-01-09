@@ -52,7 +52,7 @@ namespace AzRBlog.Tests.Controllers
 
 
             // Act
-            ViewResult result = objController.Create() as ViewResult;
+            ViewResult result = objController.Save(-1) as ViewResult;
 
             // Assert
             //  Assert.AreEqual(null, result.ViewBag.CountryId);

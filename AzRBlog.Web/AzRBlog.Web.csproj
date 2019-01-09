@@ -2259,8 +2259,7 @@
     <Content Include="Areas\Admin\Views\Country\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\User\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Save.cshtml" />
     <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -2558,6 +2557,10 @@
     <Content Include="Areas\Admin\Views\Report\Index.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
     <Content Include="Views\Shared\_PublicLayout.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Shared\_UserDropdown.cshtml" />
+    <Content Include="Views\Shared\_NotificationDropdown.cshtml" />
+    <Content Include="Views\Shared\_MessageDropdown.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

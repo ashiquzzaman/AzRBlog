@@ -1,0 +1,78 @@
+﻿<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item nav-profile">
+            <div class="nav-link">
+                <div class="user-wrapper">
+                    <div class="profile-image">
+                        <img src="/Themes/Admin/images/faces/face1.jpg" alt="profile image">
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="profile-name">AzR</p>
+                        <div>
+                            <small class="designation text-muted">Administrator</small>
+                            <span class="status-indicator online"></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success btn-block">
+                    New Post
+                    <i class="mdi mdi-plus"></i>
+                </button>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Dashboard",new{area=""})">
+                <i class="menu-icon mdi mdi-television"></i>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Post",new{area="Admin"})">
+                <i class="menu-icon mdi mdi-backup-restore"></i>
+                <span class="menu-title">Post</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Tag",new{area="Admin"})">
+                <i class="menu-icon mdi mdi-chart-line"></i>
+                <span class="menu-title">Tag</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Category",new{area="Admin"})">
+                <i class="menu-icon mdi mdi-table"></i>
+                <span class="menu-title">Category</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Report",new{area="Admin"})">
+                <i class="menu-icon mdi mdi-elevation-rise"></i>
+                <span class="menu-title">Report</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","User",new{area="Admin"})">
+                <i class="menu-icon mdi mdi-bio"></i>
+                <span class="menu-title">User</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <i class="menu-icon mdi mdi-restart"></i>
+                <span class="menu-title">Settings</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","Role",new{area="Admin"})"> Role </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","Country",new{area="Admin"})"> Country </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</nav>

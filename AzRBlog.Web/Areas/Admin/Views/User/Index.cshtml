@@ -2,7 +2,7 @@
 
 <div class="card">
     <div class="card-header">
-        <a href="@Url.Action("Create", "User")" class="btn btn-success">
+        <a href="@Url.Action("Save", "User")" class="btn btn-success">
             New User <i class='mdi mdi-plus'></i>
         </a>
     </div>
@@ -50,7 +50,7 @@
                             @Html.DisplayFor(modelItem => item.Country.Name)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                            @Html.ActionLink("Edit", "Save", new {id = item.Id}) |
                             @Html.ActionLink("Details", "Details", new {id = item.Id}) |
                             @Html.ActionLink("Delete", "Delete", new {id = item.Id})
                         </td>

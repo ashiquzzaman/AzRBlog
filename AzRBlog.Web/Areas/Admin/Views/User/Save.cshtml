@@ -2,13 +2,13 @@
 
 <div class="card">
     <div class="card-header">
-        <strong>New User</strong>
+        <strong>@(Model.Id<1? "New":"Edit") User</strong>
     </div>
     <div class="card-body">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
+            @Html.HiddenFor(model => model.Id)
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-success mr-2" />
+                    <input type="submit" value="Save" class="btn btn-success mr-2" />
                     <button class="btn btn-light">Cancel</button>
                 </div>
             </div>
